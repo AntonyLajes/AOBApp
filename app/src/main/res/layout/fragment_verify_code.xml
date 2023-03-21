@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.view.fragment.VerifyCodeFragment">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_padlock"
+            app:layout_constraintBottom_toTopOf="@+id/code_verify_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/padlock_image" />
+
+        <TextView
+            android:id="@+id/code_verify_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/code_verify"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/code_verify_subtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@string/code_verify_subtitle"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/code_verify_title" />
+
+        <EditText
+            android:id="@+id/first_verify_number"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:chainUseRtl="true"
+            app:layout_constraintBottom_toTopOf="@id/button_verify_code"
+            app:layout_constraintEnd_toStartOf="@+id/second_verify_number"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/code_verify_subtitle"
+            app:layout_constraintVertical_bias="0.2" />
+
+        <EditText
+            android:id="@+id/second_verify_number"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@id/first_verify_number"
+            app:layout_constraintEnd_toStartOf="@+id/third_verify_number"
+            app:layout_constraintStart_toEndOf="@id/first_verify_number"
+            app:layout_constraintTop_toTopOf="@id/first_verify_number" />
+
+        <EditText
+            android:id="@+id/third_verify_number"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@id/first_verify_number"
+            app:layout_constraintEnd_toStartOf="@+id/fourth_verify_number"
+            app:layout_constraintStart_toEndOf="@id/second_verify_number"
+            app:layout_constraintTop_toBottomOf="@+id/code_verify_subtitle"
+            app:layout_constraintTop_toTopOf="@id/first_verify_number" />
+
+        <EditText
+            android:id="@+id/fourth_verify_number"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@id/first_verify_number"
+            app:layout_constraintEnd_toStartOf="@+id/fifth_verify_number"
+            app:layout_constraintStart_toEndOf="@id/third_verify_number"
+            app:layout_constraintTop_toBottomOf="@+id/code_verify_subtitle"
+            app:layout_constraintTop_toTopOf="@id/first_verify_number" />
+
+        <EditText
+            android:id="@+id/fifth_verify_number"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@id/first_verify_number"
+            app:layout_constraintEnd_toStartOf="@+id/sixth_verify_number"
+            app:layout_constraintStart_toEndOf="@id/fourth_verify_number"
+            app:layout_constraintTop_toBottomOf="@+id/code_verify_subtitle"
+            app:layout_constraintTop_toTopOf="@id/first_verify_number" />
+
+        <EditText
+            android:id="@+id/sixth_verify_number"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="@id/first_verify_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/fifth_verify_number"
+            app:layout_constraintTop_toBottomOf="@+id/code_verify_subtitle"
+            app:layout_constraintTop_toTopOf="@id/first_verify_number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dont_received_code"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_verify_number" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_verify_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/button_start_backhground"
+            android:backgroundTint="@color/secondary"
+            android:minHeight="48dp"
+            android:paddingHorizontal="72dp"
+            android:paddingVertical="12dp"
+            android:text="@string/verify_code"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@id/credits"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sixth_verify_number"
+            app:layout_constraintVertical_bias="0.1" />
+
+        <TextView
+            android:id="@+id/credits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/bottom_infos"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_authentication"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.chat_app_prototype_v6.ui.view.fragment.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_insertNumberFragment"
+            app:destination="@id/insertNumberFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/insertNumberFragment"
+        android:name="com.example.chat_app_prototype_v6.ui.view.fragment.InsertNumberFragment"
+        android:label="fragment_insert_number"
+        tools:layout="@layout/fragment_insert_number" >
+        <action
+            android:id="@+id/action_insertNumberFragment_to_verifyCodeFragment"
+            app:destination="@id/verifyCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyCodeFragment"
+        android:name="com.example.chat_app_prototype_v6.ui.view.fragment.VerifyCodeFragment"
+        android:label="fragment_verify_code"
+        tools:layout="@layout/fragment_verify_code" >
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">AOBApp</string>
+    <string name="aobapp_logo">AOBApp Logo</string>
+    <string name="bottom_infos">DevelopedBy: github.com/AntonyLajes - v1.1.1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="people_background">People Background</string>
+    <string name="join_us">Junte-se a nós para falar com pessoas de todo o mundo</string>
+    <string name="subtitle">Aproveite a experiência totalmente de graça</string>
+    <string name="lets_start">Começar</string>
+    <string name="send_code_image">Send code image</string>
+    <string name="insert_number">Insira seu número de telefone</string>
+    <string name="insert_number_subtitle">Enviaremos um <b>código de verificação</b> para o numero inserido abaixo</string>
+    <string name="Enviar">send_code</string>
+    <string name="send_code">Enviar Código</string>
+    <string name="hint_number">+55 <b>00 99999-9999</b></string>
+    <string name="just_numbers">Apenas Números</string>
+    <string name="code_verify">Verificação de código</string>
+    <string name="code_verify_subtitle"><b>Atenção:</b> Enviamos um <b>código de verificação</b> para o número: </string>
+    <string name="dont_received_code">Não recebeu um código? <b>Clique aqui!</b></string>
+    <string name="verify_code">Verificar e Continuar</string>
+    <string name="padlock_image">Padlock Image</string>
+    <string name="create_profile">Criar Perfil</string>
+    <string name="select_profile_photo">Select Profile Photo</string>
+    <string name="name">Nome:</string>
+    <string name="name_lastname">Nome Sobrenome</string>
+    <string name="user">Usuário:</string>
+    <string name="user_symbol">\@</string>
+    <string name="status">Recado</string>
+    <string name="status_example">Disponível para conversa.</string>
+    <string name="save">Salvar</string>
+    <string name="profile">Perfil</string>
+    <string name="verify_code_advise">Insira o código de verificação corretamente</string>
+    <string name="create">Criar</string>
+    <string name="contacts">Contatos</string>
+    <string name="messages">Mensagens</string>
+    <string name="settings">Configurações</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="contact_photo">Contact Photo</string>
+    <string name="message_icon">Message Icon</string>
+    <string name="search">Pesquisar...</string>
+    <string name="insert_data_error">Insira os dados corretamente.</string>
+    <string name="insert_profile_picture">Insira uma foto de perfil.</string>
+    <string name="signup_success">Sucesso! Seja bem vindo(a)</string>
+</resources>
