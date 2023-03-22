@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.chat_app_prototype_v6.R
 import com.example.chat_app_prototype_v6.databinding.ActivityCreateProfileBinding
 import com.example.chat_app_prototype_v6.databinding.ActivityMainBinding
+import com.example.chat_app_prototype_v6.ui.model.FirebaseInstance
 import com.example.chat_app_prototype_v6.ui.viewmodel.CreateProfileViewModel
 import com.example.chat_app_prototype_v6.util.datamodel.UserProfileModel
 import java.io.ByteArrayOutputStream
@@ -28,6 +29,7 @@ class CreateProfileActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityCreateProfileBinding
     private lateinit var alertDialog: AlertDialog
     private var bitmap: Bitmap? = null
+    private var firebaseAuthentication = FirebaseInstance.getAuthenticationInstance()
     private lateinit var viewmodel: CreateProfileViewModel
     private val galleryRequest =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { permission ->
@@ -93,11 +95,12 @@ class CreateProfileActivity : AppCompatActivity(), View.OnClickListener {
                 val userName = binding.inputUsername.unMasked
                 val status = binding.inputStatus.text.toString()
                 val userData = UserProfileModel(
-                    null,
+                    firebaseAuthentication.currentUser?.uid.toString(),
+                    firebaseAuthentication.currentUser?.phoneNumber.toString(),
                     name,
                     userName,
                     status,
-                    null
+                    ""
                 )
                 when{
                     name.isEmpty() || userName.isEmpty() || status.isEmpty() -> {
@@ -107,7 +110,7 @@ class CreateProfileActivity : AppCompatActivity(), View.OnClickListener {
                         makeToast(getString(R.string.insert_profile_picture))
                     }
                     else -> {
-                        viewmodel.saveProfile(profilePictureData, userData)
+                        viewmodel.saveProfile(profilePictureData, userData, this)
                     }
                 }
             }

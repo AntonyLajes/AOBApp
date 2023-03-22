@@ -42,4 +42,11 @@
     <string name="insert_data_error">Insira os dados corretamente.</string>
     <string name="insert_profile_picture">Insira uma foto de perfil.</string>
     <string name="signup_success">Sucesso! Seja bem vindo(a)</string>
+    <string name="users">users</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="attention">Atenção</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
+    <string name="permission_dialog_read_contacts_message">Precisamos do acesso a lista de contatos do dispositivo. Deseja permitir agora?</string>
 </resources>
