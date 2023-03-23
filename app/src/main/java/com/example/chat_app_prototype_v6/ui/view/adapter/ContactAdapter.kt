@@ -8,7 +8,7 @@ import com.example.chat_app_prototype_v6.databinding.ContactItemBinding
 import com.example.chat_app_prototype_v6.util.datamodel.UserProfileModel
 import com.squareup.picasso.Picasso
 
-class ContactAdapter(var context: Context): RecyclerView.Adapter<ContactAdapter.MyViewHolder>() {
+class ContactAdapter(var onItemClickListener: OnItemClickListener, var context: Context): RecyclerView.Adapter<ContactAdapter.MyViewHolder>() {
 
     private var contactList: ArrayList<UserProfileModel> = ArrayList()
 
@@ -22,6 +22,9 @@ class ContactAdapter(var context: Context): RecyclerView.Adapter<ContactAdapter.
         holder.contactItem.contactName.text = contactData.name
         holder.contactItem.contactStatus.text = contactData.status
         Picasso.with(context).load(contactData.profilePictureLink).into(holder.contactItem.contactPhoto)
+        holder.contactItem.contactField.setOnClickListener {
+            onItemClickListener.onItemClickListener(contactData, position)
+        }
     }
 
     override fun getItemCount(): Int = contactList.size
@@ -32,4 +35,7 @@ class ContactAdapter(var context: Context): RecyclerView.Adapter<ContactAdapter.
 
     class MyViewHolder(val contactItem: ContactItemBinding) : RecyclerView.ViewHolder(contactItem.root)
 
+    interface OnItemClickListener{
+        fun onItemClickListener(contactData: UserProfileModel, position: Int)
+    }
 }

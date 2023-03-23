@@ -21,7 +21,7 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
     private var _contactList: MutableLiveData<ArrayList<UserProfileModel>> = MutableLiveData()
     val contactList: LiveData<ArrayList<UserProfileModel>> get() = _contactList
 
-    fun getContactsList(contactList: ArrayList<ContactModel>, context: Context) {
+    fun getContactsList(contactList: ArrayList<ContactModel>, context: Context, currentUserId: String) {
         realtimeDatabase.child(context.getString(R.string.users))
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -34,7 +34,9 @@ class ContactsViewModel(application: Application) : AndroidViewModel(application
                         for (contactDatabase in databaseContactList) {
                             if (contact.number == contactDatabase.phoneNumber) {
                                 if (contactDatabase !in contactExistsList) {
-                                    contactExistsList.add(contactDatabase)
+                                    if(currentUserId != contactDatabase.userId){
+                                        contactExistsList.add(contactDatabase)
+                                    }
                                 }
                             }
                         }
