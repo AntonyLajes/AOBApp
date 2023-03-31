@@ -7,28 +7,31 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.Settings
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chat_app_prototype_v6.R
 import com.example.chat_app_prototype_v6.databinding.FragmentContactsBinding
+import com.example.chat_app_prototype_v6.ui.model.FirebaseInstance
 import com.example.chat_app_prototype_v6.ui.view.adapter.ContactAdapter
 import com.example.chat_app_prototype_v6.ui.viewmodel.ContactsViewModel
 import com.example.chat_app_prototype_v6.util.datamodel.ContactModel
+import com.example.chat_app_prototype_v6.util.datamodel.UserProfileModel
 
 class ContactsFragment : Fragment() {
 
     private var _binding: FragmentContactsBinding? = null
     private val binding: FragmentContactsBinding get() = _binding!!
     private val contactList: ArrayList<ContactModel> = ArrayList()
+    private val firebaseAuthentication = FirebaseInstance.getAuthenticationInstance()
     private lateinit var viewModel: ContactsViewModel
     private lateinit var alertDialog: AlertDialog
     private lateinit var contactAdapter: ContactAdapter
@@ -51,16 +54,15 @@ class ContactsFragment : Fragment() {
     ): View {
         _binding = FragmentContactsBinding.inflate(inflater)
         viewModel = ViewModelProvider(this).get(ContactsViewModel::class.java)
-        contactAdapter = ContactAdapter(requireContext())
         verifyGalleryPermission()
+        handlerRecyclerView()
         return binding.root
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.getContactsList(contactList, requireContext())
+        viewModel.getContactsList(contactList, requireContext(), firebaseAuthentication.currentUser?.uid.toString())
         observers()
-        handlerRecyclerView()
     }
 
     override fun onDestroyView() {
@@ -69,10 +71,10 @@ class ContactsFragment : Fragment() {
     }
 
     private fun observers(){
-        viewModel.contactList.observe(requireActivity(), Observer{ matchedContactList ->
+        viewModel.contactList.observe(requireActivity()) { matchedContactList ->
             contactAdapter.getContactList(matchedContactList)
             contactAdapter.notifyDataSetChanged()
-        })
+        }
     }
 
     private fun verifyPermissions(permission: String): Boolean = ContextCompat.checkSelfPermission(
@@ -128,6 +130,11 @@ class ContactsFragment : Fragment() {
     }
 
     private fun handlerRecyclerView(){
+        contactAdapter = ContactAdapter(object: ContactAdapter.OnItemClickListener{
+            override fun onItemClickListener(contactData: UserProfileModel, position: Int) {
+                findNavController().navigate(ContactsFragmentDirections.actionNavContactsToChatFragment(contactData))
+            }
+        }, requireContext())
         binding.contactsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.contactsRecyclerView.adapter = contactAdapter
     }

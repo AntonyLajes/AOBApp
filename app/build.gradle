@@ -1,11 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
     //NavArgs
     id 'androidx.navigation.safeargs.kotlin'
     id 'com.google.gms.google-services'
 
+    //Kapt
     id 'kotlin-kapt'
+
+    //Parcelize
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -63,7 +68,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
 
     //Picasso
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.15.0'

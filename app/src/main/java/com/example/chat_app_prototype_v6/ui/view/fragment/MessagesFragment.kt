@@ -1,33 +1,45 @@
 package com.example.chat_app_prototype_v6.ui.view.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chat_app_prototype_v6.databinding.FragmentMessagesBinding
+import com.example.chat_app_prototype_v6.ui.model.FirebaseInstance
 import com.example.chat_app_prototype_v6.ui.view.adapter.MessageAdapter
+import com.example.chat_app_prototype_v6.ui.viewmodel.MessagesViewModel
 import com.example.chat_app_prototype_v6.util.datamodel.LastMessageModel
+import com.example.chat_app_prototype_v6.util.datamodel.UserProfileModel
 
 class MessagesFragment : Fragment() {
 
     private var _binding: FragmentMessagesBinding? = null
     private val binding: FragmentMessagesBinding get() = _binding!!
     private lateinit var messageAdapter: MessageAdapter
-    private var lastMessageList: ArrayList<LastMessageModel> = ArrayList()
+    private lateinit var viewModel: MessagesViewModel
+    private var firebaseAuthentication = FirebaseInstance.getAuthenticationInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentMessagesBinding.inflate(inflater)
+        viewModel = ViewModelProvider(this).get(MessagesViewModel::class.java)
+        viewModel.getContactsWithConversationStarted(
+            firebaseAuthentication.currentUser?.uid.toString(),
+            requireContext()
+        )
+        lastMessageAdapterHandler()
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        lastMessageAdapterHandler()
+    override fun onResume() {
+        super.onResume()
+        observers()
     }
 
     override fun onDestroyView() {
@@ -35,22 +47,34 @@ class MessagesFragment : Fragment() {
         _binding = null
     }
 
-    private fun lastMessageAdapterHandler(){
-        messageListMocked()
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        messageAdapter = MessageAdapter(requireContext())
+    private fun lastMessageAdapterHandler() {
+        messageAdapter = MessageAdapter(
+            firebaseAuthentication.currentUser?.uid.toString(),
+            requireContext(),
+            object : MessageAdapter.OnItemClickListener {
+                override fun onItemClickListener(messageData: LastMessageModel, position: Int) {
+                    val contactData = UserProfileModel(
+                        messageData.userId,
+                        "",
+                        messageData.name,
+                        "",
+                        "",
+                        messageData.profilePictureLink
+                    )
+                    findNavController().navigate(
+                        MessagesFragmentDirections.actionNavMessagesToChatFragment(
+                            contactData
+                        )
+                    )
+                }
+            })
         binding.recyclerView.adapter = messageAdapter
-        messageAdapter.getLastMessageList(lastMessageList)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireActivity())
     }
 
-    private fun messageListMocked(){
-        for(x in 0..10){
-            lastMessageList.add(LastMessageModel(
-                "Alana Dias",
-                "https://firebasestorage.googleapis.com/v0/b/chat-app-prototype-v6.appspot.com/o/profilePictures%2F%5BB%40118e411.jpeg?alt=media&token=009ca449-070b-4cc6-9645-9bacf65f1039",
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                "11:09"
-            ))
+    private fun observers() {
+        viewModel.contactsWithConversation.observe(requireActivity()) { contactsWithConversation ->
+            messageAdapter.getMessagesList(contactsWithConversation)
         }
     }
 }

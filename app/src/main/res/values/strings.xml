@@ -49,4 +49,10 @@
     <string name="no">Não</string>
     <string name="yes">Sim</string>
     <string name="permission_dialog_read_contacts_message">Precisamos do acesso a lista de contatos do dispositivo. Deseja permitir agora?</string>
+    <string name="go_back">Voltar</string>
+    <string name="call_the_contact">Ligar para o contato</string>
+    <string name="send_message">Enviar mensagem</string>
+    <string name="write_here">escreva aqui...</string>
+    <string name="messages_database">messages</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 </resources>

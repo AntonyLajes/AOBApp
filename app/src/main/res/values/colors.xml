@@ -11,4 +11,6 @@
     <color name="primary">#FFDE59</color>
     <color name="secondary">#FFF5CD</color>
     <color name="grey">#9F9F9F</color>
+    <color name="tertiary">#A48F3A</color>
+    <color name="text_message_color">#414141</color>
 </resources>
