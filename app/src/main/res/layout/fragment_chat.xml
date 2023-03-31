@@ -43,10 +43,11 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
+                        android:id="@+id/contact_photo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:contentDescription="@string/contact_photo"
-                        android:scaleType="fitCenter"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/ic_upload_photo" />
 
                 </com.google.android.material.card.MaterialCardView>
@@ -105,7 +106,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background_message_field"
             android:padding="12dp">
 
             <EditText

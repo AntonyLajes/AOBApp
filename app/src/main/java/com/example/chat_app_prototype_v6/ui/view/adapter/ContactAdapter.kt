@@ -21,7 +21,7 @@ class ContactAdapter(var onItemClickListener: OnItemClickListener, var context: 
         val contactData = contactList[position]
         holder.contactItem.contactName.text = contactData.name
         holder.contactItem.contactStatus.text = contactData.status
-        Picasso.with(context).load(contactData.profilePictureLink).into(holder.contactItem.contactPhoto)
+        Picasso.get().load(contactData.profilePictureLink).into(holder.contactItem.contactPhoto)
         holder.contactItem.contactField.setOnClickListener {
             onItemClickListener.onItemClickListener(contactData, position)
         }

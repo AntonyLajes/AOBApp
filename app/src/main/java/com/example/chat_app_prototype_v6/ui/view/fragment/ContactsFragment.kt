@@ -16,6 +16,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chat_app_prototype_v6.R
 import com.example.chat_app_prototype_v6.databinding.FragmentContactsBinding
@@ -131,7 +132,7 @@ class ContactsFragment : Fragment() {
     private fun handlerRecyclerView(){
         contactAdapter = ContactAdapter(object: ContactAdapter.OnItemClickListener{
             override fun onItemClickListener(contactData: UserProfileModel, position: Int) {
-
+                findNavController().navigate(ContactsFragmentDirections.actionNavContactsToChatFragment(contactData))
             }
         }, requireContext())
         binding.contactsRecyclerView.layoutManager = LinearLayoutManager(requireContext())

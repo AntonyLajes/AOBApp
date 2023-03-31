@@ -10,10 +10,13 @@
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/button_start_backhground.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_launcher_background.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_padlock.xml" value="0.297" />
+        <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_received.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_send_code.xml" value="0.297" />
+        <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_send_message.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_sended.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/ic_upload_photo.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/input_background.xml" value="0.297" />
+        <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/message_background.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/rounded_background.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/send_code.xml" value="0.297" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/drawable/start_background.xml" value="0.297" />
@@ -31,6 +34,8 @@
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/layout/fragment_start.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/layout/fragment_verify_code.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/layout/message_item.xml" value="0.365625" />
+        <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/layout/receiver_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/layout/sender_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/pc/AndroidStudioProjects/chatappprototypev6/app/src/main/res/menu/menu_main_bottom.xml" value="0.36666666666666664" />
       </map>
     </option>
