@@ -16,30 +16,22 @@
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:navigationIcon="@drawable/ic_back"
+            android:id="@+id/toolbar"
+            app:title="@string/lorem">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/button_back"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:contentDescription="@string/go_back"
-                    android:src="@drawable/ic_back"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/material_card_view"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginHorizontal="16dp"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/button_back"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
@@ -65,17 +57,6 @@
                     app:layout_constraintStart_toEndOf="@id/material_card_view"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="@string/permission_dialog_read_contacts_message" />
-
-                <ImageView
-                    android:id="@+id/button_call"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_marginHorizontal="16dp"
-                    android:contentDescription="@string/call_the_contact"
-                    android:src="@drawable/ic_baseline_phone_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

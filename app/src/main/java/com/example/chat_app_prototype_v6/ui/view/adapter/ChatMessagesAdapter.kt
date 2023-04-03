@@ -8,7 +8,7 @@ import com.example.chat_app_prototype_v6.databinding.ReceiverItemBinding
 import com.example.chat_app_prototype_v6.databinding.SenderItemBinding
 import com.example.chat_app_prototype_v6.util.datamodel.MessageModel
 
-class ChatMessagesAdapter(val context: Context, val currentUserId: String) :
+class ChatMessagesAdapter(val context: Context, private val currentUserId: String) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var messagesList: ArrayList<MessageModel> = ArrayList()
